@@ -1,0 +1,139 @@
+scala> val textFile = sc.textFile("/home/hadoop/Desktop/Spark_CS259/test.txt")
+textFile: org.apache.spark.rdd.RDD[String] = /home/hadoop/Desktop/Spark_CS259/test.txt MapPartitionsRDD[22] at textFile at <console>:31
+
+scala> 
+
+scala> // Step 1: Check if the text file is being read correctly
+
+scala> textFile.collect().foreach(println)  // Print the raw lines from the file
+apple banana apple orange banana apple orange apple
+data analytics computing technology data data
+community growth culture community growth sustainability
+apple banana apple orange banana apple orange apple
+data analytics computing technology data data
+community growth culture community growth sustainability
+apple banana apple orange banana apple orange apple
+data analytics computing technology data data
+community growth culture community growth sustainability
+
+scala> 
+
+scala> // Step 2: Check if words are being split correctly
+
+scala> val words = textFile.flatMap(line => line.split(" "))
+words: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[23] at flatMap at <console>:32
+
+scala> words.collect().foreach(println)  // Print out the words after splitting by spaces
+apple
+banana
+apple
+orange
+banana
+apple
+orange
+apple
+data
+analytics
+computing
+technology
+data
+data
+community
+growth
+culture
+community
+growth
+sustainability
+apple
+banana
+apple
+orange
+banana
+apple
+orange
+apple
+data
+analytics
+computing
+technology
+data
+data
+community
+growth
+culture
+community
+growth
+sustainability
+apple
+banana
+apple
+orange
+banana
+apple
+orange
+apple
+data
+analytics
+computing
+technology
+data
+data
+community
+growth
+culture
+community
+growth
+sustainability
+
+scala> 
+
+scala> // Step 3: Check if the word counts are being calculated correctly
+
+scala> val counts = words.map(word => (word, 1)).reduceByKey(_ + _)
+counts: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[25] at reduceByKey at <console>:32
+
+scala> counts.collect().foreach(println)  // Print out the word counts
+(technology,3)
+(culture,3)
+(orange,6)
+(data,9)
+(analytics,3)
+(apple,12)
+(computing,3)
+(banana,6)
+(growth,6)
+(community,6)
+(sustainability,3)
+
+scala> 
+
+scala> // Step 4: Sort the word counts
+
+scala> import scala.collection.immutable.ListMap
+import scala.collection.immutable.ListMap
+
+scala> val sorted = ListMap(counts.collect().sortWith((a, b) => a._2 > b._2):_*)
+sorted: scala.collection.immutable.ListMap[String,Int] = ListMap(apple -> 12, data -> 9, orange -> 6, banana -> 6, growth -> 6, community -> 6, technology -> 3, culture -> 3, analytics -> 3, computing -> 3, sustainability -> 3)
+
+scala> println(sorted)
+ListMap(apple -> 12, data -> 9, orange -> 6, banana -> 6, growth -> 6, community -> 6, technology -> 3, culture -> 3, analytics -> 3, computing -> 3, sustainability -> 3)
+
+scala> 
+
+scala> // Step 5: Print words with count > 4
+
+scala> for ((k, v) <- sorted) {
+     |   if (v > 4) {
+     |     print(k + ", ")
+     |     print(v)
+     |     println()
+     |   }
+     | }
+apple, 12
+data, 9
+orange, 6
+banana, 6
+growth, 6
+community, 6
+
+scala> 
