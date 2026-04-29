@@ -1,0 +1,346 @@
+use hospital_db
+switched to db hospital_db
+db.patients.insertMany([
+  { patient_id: 1, first_name: "John", last_name: "Doe", gender: "M", dob: "1985-04-12", phone: "9876543210" },
+  { patient_id: 2, first_name: "Mary", last_name: "Smith", gender: "F", dob: "1990-07-25", phone: "9123456780" },
+  { patient_id: 3, first_name: "Raj", last_name: "Kumar", gender: "M", dob: "1978-11-03", phone: "9988776655" },
+  { patient_id: 4, first_name: "Anita", last_name: "Sharma", gender: "F", dob: "1988-01-19", phone: "9090909090" },
+  { patient_id: 5, first_name: "David", last_name: "Brown", gender: "M", dob: "1965-09-30", phone: "9345678123" },
+  { patient_id: 6, first_name: "Sara", last_name: "Wilson", gender: "F", dob: "1995-06-14", phone: "9456123789" },
+  { patient_id: 7, first_name: "Amit", last_name: "Patel", gender: "M", dob: "1982-03-08", phone: "9898989898" },
+  { patient_id: 8, first_name: "Emily", last_name: "Clark", gender: "F", dob: "2000-12-22", phone: "9765432109" },
+  { patient_id: 9, first_name: "Mohammed", last_name: "Ali", gender: "M", dob: "1972-05-17", phone: "9554433221" },
+  { patient_id: 10, first_name: "Priya", last_name: "Nair", gender: "F", dob: "1993-10-05", phone: "9665544332" }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6981c0c8168b84aecc736e54'),
+    '1': ObjectId('6981c0c8168b84aecc736e55'),
+    '2': ObjectId('6981c0c8168b84aecc736e56'),
+    '3': ObjectId('6981c0c8168b84aecc736e57'),
+    '4': ObjectId('6981c0c8168b84aecc736e58'),
+    '5': ObjectId('6981c0c8168b84aecc736e59'),
+    '6': ObjectId('6981c0c8168b84aecc736e5a'),
+    '7': ObjectId('6981c0c8168b84aecc736e5b'),
+    '8': ObjectId('6981c0c8168b84aecc736e5c'),
+    '9': ObjectId('6981c0c8168b84aecc736e5d')
+  }
+}
+db.medical_images.insertMany([
+  { image_id: 201, patient_id: 1, type: "X-Ray", body_part: "Chest", date: "2024-01-05", path: "/img/xray1.jpg" },
+  { image_id: 202, patient_id: 2, type: "MRI", body_part: "Brain", date: "2024-01-08", path: "/img/mri2.dcm" },
+  { image_id: 203, patient_id: 3, type: "CT", body_part: "Abdomen", date: "2024-01-10", path: "/img/ct3.dcm" },
+  { image_id: 204, patient_id: 4, type: "Ultrasound", body_part: "Pelvis", date: "2024-01-12", path: "/img/us4.jpg" },
+  { image_id: 205, patient_id: 5, type: "X-Ray", body_part: "Knee", date: "2024-01-14", path: "/img/xray5.jpg" },
+  { image_id: 206, patient_id: 6, type: "MRI", body_part: "Spine", date: "2024-01-16", path: "/img/mri6.dcm" },
+  { image_id: 207, patient_id: 7, type: "CT", body_part: "Chest", date: "2024-01-18", path: "/img/ct7.dcm" },
+  { image_id: 208, patient_id: 8, type: "Ultrasound", body_part: "Abdomen", date: "2024-01-20", path: "/img/us8.jpg" },
+  { image_id: 209, patient_id: 9, type: "X-Ray", body_part: "Hand", date: "2024-01-22", path: "/img/xray9.jpg" },
+  { image_id: 210, patient_id: 10, type: "MRI", body_part: "Knee", date: "2024-01-24", path: "/img/mri10.dcm" }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6981c0d5168b84aecc736e5e'),
+    '1': ObjectId('6981c0d5168b84aecc736e5f'),
+    '2': ObjectId('6981c0d5168b84aecc736e60'),
+    '3': ObjectId('6981c0d5168b84aecc736e61'),
+    '4': ObjectId('6981c0d5168b84aecc736e62'),
+    '5': ObjectId('6981c0d5168b84aecc736e63'),
+    '6': ObjectId('6981c0d5168b84aecc736e64'),
+    '7': ObjectId('6981c0d5168b84aecc736e65'),
+    '8': ObjectId('6981c0d5168b84aecc736e66'),
+    '9': ObjectId('6981c0d5168b84aecc736e67')
+  }
+}
+db.lab_reports.insertMany([
+  {
+    report_id: 101,
+    patient_id: 1,
+    test_name: "Hemoglobin",
+    value: 13.5,
+    unit: "g/dL",
+    interpretation: "Within normal range",
+    doctor_notes: "No action needed",
+    report_date: "2024-01-10"
+  },
+  {
+    report_id: 102,
+    patient_id: 2,
+    test_name: "Blood Sugar (Fasting)",
+    value: 95,
+    unit: "mg/dL",
+    interpretation: "Normal fasting glucose",
+    doctor_notes: "Continue regular diet",
+    report_date: "2024-01-12"
+  },
+  {
+    report_id: 103,
+    patient_id: 3,
+    test_name: "Cholesterol",
+    value: 210,
+    unit: "mg/dL",
+    interpretation: "Borderline high",
+    doctor_notes: "Advise low-fat diet and exercise",
+    report_date: "2024-01-15"
+  },
+  {
+    report_id: 104,
+    patient_id: 4,
+    test_name: "Blood Pressure",
+    value: "120/80",
+    unit: "mmHg",
+    interpretation: "Normal",
+    doctor_notes: "Maintain healthy lifestyle",
+    report_date: "2024-01-18"
+  },
+  {
+    report_id: 105,
+    patient_id: 5,
+    test_name: "ECG",
+    value: "Normal",
+    unit: "-",
+    interpretation: "Normal sinus rhythm",
+    doctor_notes: "No cardiovascular issues detected",
+    report_date: "2024-01-20"
+  },
+  {
+    report_id: 106,
+    patient_id: 6,
+    test_name: "Vitamin D",
+    value: 18,
+    unit: "ng/mL",
+    interpretation: "Deficient",
+    doctor_notes: "Start vitamin D supplementation",
+    report_date: "2024-01-22"
+  },
+  {
+    report_id: 107,
+    patient_id: 7,
+    test_name: "Blood Sugar (PP)",
+    value: 165,
+    unit: "mg/dL",
+    interpretation: "Slightly elevated",
+    doctor_notes: "Monitor sugar intake",
+    report_date: "2024-01-25"
+  },
+  {
+    report_id: 108,
+    patient_id: 8,
+    test_name: "Hemoglobin",
+    value: 11.2,
+    unit: "g/dL",
+    interpretation: "Low",
+    doctor_notes: "Iron supplements recommended",
+    report_date: "2024-01-27"
+  },
+  {
+    report_id: 109,
+    patient_id: 9,
+    test_name: "Creatinine",
+    value: 1.4,
+    unit: "mg/dL",
+    interpretation: "Within normal range",
+    doctor_notes: "No kidney issues detected",
+    report_date: "2024-01-29"
+  },
+  {
+    report_id: 110,
+    patient_id: 10,
+    test_name: "Thyroid TSH",
+    value: 6.1,
+    unit: "µIU/mL",
+    interpretation: "High – possible hypothyroidism",
+    doctor_notes: "Recommend endocrinologist consultation",
+    report_date: "2024-01-30"
+  }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6981c0e5168b84aecc736e68'),
+    '1': ObjectId('6981c0e5168b84aecc736e69'),
+    '2': ObjectId('6981c0e5168b84aecc736e6a'),
+    '3': ObjectId('6981c0e5168b84aecc736e6b'),
+    '4': ObjectId('6981c0e5168b84aecc736e6c'),
+    '5': ObjectId('6981c0e5168b84aecc736e6d'),
+    '6': ObjectId('6981c0e5168b84aecc736e6e'),
+    '7': ObjectId('6981c0e5168b84aecc736e6f'),
+    '8': ObjectId('6981c0e5168b84aecc736e70'),
+    '9': ObjectId('6981c0e5168b84aecc736e71')
+  }
+}
+db.patients.find()
+{
+  _id: ObjectId('6981c0c8168b84aecc736e54'),
+  patient_id: 1,
+  first_name: 'John',
+  last_name: 'Doe',
+  gender: 'M',
+  dob: '1985-04-12',
+  phone: '9876543210'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e55'),
+  patient_id: 2,
+  first_name: 'Mary',
+  last_name: 'Smith',
+  gender: 'F',
+  dob: '1990-07-25',
+  phone: '9123456780'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e56'),
+  patient_id: 3,
+  first_name: 'Raj',
+  last_name: 'Kumar',
+  gender: 'M',
+  dob: '1978-11-03',
+  phone: '9988776655'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e57'),
+  patient_id: 4,
+  first_name: 'Anita',
+  last_name: 'Sharma',
+  gender: 'F',
+  dob: '1988-01-19',
+  phone: '9090909090'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e58'),
+  patient_id: 5,
+  first_name: 'David',
+  last_name: 'Brown',
+  gender: 'M',
+  dob: '1965-09-30',
+  phone: '9345678123'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e59'),
+  patient_id: 6,
+  first_name: 'Sara',
+  last_name: 'Wilson',
+  gender: 'F',
+  dob: '1995-06-14',
+  phone: '9456123789'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e5a'),
+  patient_id: 7,
+  first_name: 'Amit',
+  last_name: 'Patel',
+  gender: 'M',
+  dob: '1982-03-08',
+  phone: '9898989898'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e5b'),
+  patient_id: 8,
+  first_name: 'Emily',
+  last_name: 'Clark',
+  gender: 'F',
+  dob: '2000-12-22',
+  phone: '9765432109'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e5c'),
+  patient_id: 9,
+  first_name: 'Mohammed',
+  last_name: 'Ali',
+  gender: 'M',
+  dob: '1972-05-17',
+  phone: '9554433221'
+}
+{
+  _id: ObjectId('6981c0c8168b84aecc736e5d'),
+  patient_id: 10,
+  first_name: 'Priya',
+  last_name: 'Nair',
+  gender: 'F',
+  dob: '1993-10-05',
+  phone: '9665544332'
+}
+db.lab_reports.find({ patient_id: 3 })
+{
+  _id: ObjectId('6981c0e5168b84aecc736e6a'),
+  report_id: 103,
+  patient_id: 3,
+  test_name: 'Cholesterol',
+  value: 210,
+  unit: 'mg/dL',
+  interpretation: 'Borderline high',
+  doctor_notes: 'Advise low-fat diet and exercise',
+  report_date: '2024-01-15'
+}
+db.lab_reports.find({ 
+  $or: [
+    { test_name: "Hemoglobin", value: { $lt: 12 } },
+    { test_name: "Thyroid TSH", value: { $gt: 5 } }
+  ]
+})
+{
+  _id: ObjectId('6981c0e5168b84aecc736e6f'),
+  report_id: 108,
+  patient_id: 8,
+  test_name: 'Hemoglobin',
+  value: 11.2,
+  unit: 'g/dL',
+  interpretation: 'Low',
+  doctor_notes: 'Iron supplements recommended',
+  report_date: '2024-01-27'
+}
+{
+  _id: ObjectId('6981c0e5168b84aecc736e71'),
+  report_id: 110,
+  patient_id: 10,
+  test_name: 'Thyroid TSH',
+  value: 6.1,
+  unit: 'µIU/mL',
+  interpretation: 'High – possible hypothyroidism',
+  doctor_notes: 'Recommend endocrinologist consultation',
+  report_date: '2024-01-30'
+}
+db.lab_reports.updateOne(
+  { report_id: 101 },
+  { $set: { value: 14.1, doctor_notes: "Rechecked; all fine" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.medical_images.updateOne(
+  { image_id: 201 },
+  { $set: { path: "/img/updated_xray1.jpg", findings: "No fractures detected" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.lab_reports.find({report_id:101})
+{
+  _id: ObjectId('6981c0e5168b84aecc736e68'),
+  report_id: 101,
+  patient_id: 1,
+  test_name: 'Hemoglobin',
+  value: 14.1,
+  unit: 'g/dL',
+  interpretation: 'Within normal range',
+  doctor_notes: 'Rechecked; all fine',
+  report_date: '2024-01-10'
+}
+db.medical_images.deleteOne({ image_id: 209 })
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.medical_images.find({image_id:209})
+hospital_db
+
