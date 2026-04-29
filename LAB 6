@@ -1,0 +1,324 @@
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~$ ls
+Desktop  Documents  Downloads  eclipse-workspace  hadoop  hadoop-3.3.6.tar.gz  hadoopdata  Music  Pictures  Public  snap  Templates  Videos
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~$ cd hadoop
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop$ ls
+bin  etc  include  lib  libexec  LICENSE-binary  licenses-binary  LICENSE.txt  logs  NOTICE-binary  NOTICE.txt  README.txt  sbin  share  WordCount.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop$ cd sbin
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop/sbin$ start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as hadoop in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [bmscecse-HP-Elite-Tower-800-G9-Desktop-PC]
+Starting resourcemanager
+Starting nodemanagers
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop/sbin$ ls
+distribute-exclude.sh  hadoop-daemons.sh  mr-jobhistory-daemon.sh  start-all.sh       start-dfs.sh         start-yarn.sh  stop-balancer.sh  stop-secure-dns.sh  workers.sh
+FederationStateStore   httpfs.sh          refresh-namenodes.sh     start-balancer.sh  start-secure-dns.sh  stop-all.cmd   stop-dfs.cmd      stop-yarn.cmd       yarn-daemon.sh
+hadoop-daemon.sh       kms.sh             start-all.cmd            start-dfs.cmd      start-yarn.cmd       stop-all.sh    stop-dfs.sh       stop-yarn.sh        yarn-daemons.sh
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop/sbin$ ls -a
+.                      FederationStateStore  httpfs.sh                refresh-namenodes.sh  start-balancer.sh  start-secure-dns.sh  stop-all.cmd      stop-dfs.cmd        stop-yarn.cmd  yarn-daemon.sh
+..                     hadoop-daemon.sh      kms.sh                   start-all.cmd         start-dfs.cmd      start-yarn.cmd       stop-all.sh       stop-dfs.sh         stop-yarn.sh   yarn-daemons.sh
+distribute-exclude.sh  hadoop-daemons.sh     mr-jobhistory-daemon.sh  start-all.sh          start-dfs.sh       start-yarn.sh        stop-balancer.sh  stop-secure-dns.sh  workers.sh
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/hadoop/sbin$ cd ~
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~$ LS
+LS: command not found
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~$ ls
+Desktop  Documents  Downloads  eclipse-workspace  hadoop  hadoop-3.3.6.tar.gz  hadoopdata  Music  Pictures  Public  snap  Templates  Videos
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~$ cd Desktop
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop$ ls
+CS259_Hadoop  samplee  samplee.txt  wordcount1.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop$ cd CS259_Hadoop
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ ls
+1901.gz  1902.gz  wordcount1.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -mkdir /input
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ ls
+1901.gz  1902.gz  wordcount1.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -ls /
+Found 9 items
+drwxr-xr-x   - hadoop supergroup          0 2025-04-21 11:50 /FFF
+drwxr-xr-x   - hadoop supergroup          0 2026-04-07 15:41 /input
+drwxr-xr-x   - hadoop supergroup          0 2026-03-16 15:52 /inputbda
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:42 /output
+drwxr-xr-x   - hadoop supergroup          0 2026-03-16 15:53 /outputbda
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:17 /rgs
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:40 /rgs1
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:48 /rgs2
+drwxr-xr-x   - hadoop supergroup          0 2025-05-26 13:02 /user
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -rm r /input
+rm: `r': No such file or directory
+rm: `/input': Is a directory
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -mkdir /input_temp_CS259
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -ls /
+Found 10 items
+drwxr-xr-x   - hadoop supergroup          0 2025-04-21 11:50 /FFF
+drwxr-xr-x   - hadoop supergroup          0 2026-04-07 15:41 /input
+drwxr-xr-x   - hadoop supergroup          0 2026-04-07 15:42 /input_temp_CS259
+drwxr-xr-x   - hadoop supergroup          0 2026-03-16 15:52 /inputbda
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:42 /output
+drwxr-xr-x   - hadoop supergroup          0 2026-03-16 15:53 /outputbda
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:17 /rgs
+drwxr-xr-x   - hadoop supergroup          0 2025-04-29 15:40 /rgs1
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:48 /rgs2
+drwxr-xr-x   - hadoop supergroup          0 2025-05-26 13:02 /user
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ ls
+1901  1902  wordcount1.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put ~/home/hadoop/Desktop/CS259_Hadoop/1901 /input_temp_CS259
+put: `/home/hadoop/home/hadoop/Desktop/CS259_Hadoop/1901': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put ~/home/hadoop/Desktop/CS259_Hadoop/1901.txt /input_temp_CS259
+put: `/home/hadoop/home/hadoop/Desktop/CS259_Hadoop/1901.txt': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ group          0 2025-04-29 15:40 /rgs1
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:48 /rgs2
+drwxr-xr-x   - hadoop supergroup          0 2025-05-26 13:02 /user
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ ls
+1901  1902  wordcount1.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put ~/home/hadoop/Desktop/CS259_Hadoop/1901 /input_temp_CS259
+put: `/home/hadoop/home/hadoop/Desktop/CS259_Hadoop/1901': No such file or directory
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put ~/home/hadoop/Desktop/CS259_Hadoop/1901.txt /input_temp_CS259
+put: `/home/hadoop/home/hadoop/Desktop/CS259_Hadoop/1901.txt': No such file or directory
+^C
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put 1901 /input_temp_CS259
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -put 1902 /input_temp_CS259
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hadoop jar myhadoop.jar averagetemp_amit.AverageDriver /input_temp_CS259 /output_avg_CS259
+JAR does not exist or is not a normal file: /home/hadoop/Desktop/CS259_Hadoop/myhadoop.jar
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hadoop jar averagetemp.jar AverageDriver /input_temp_CS259 /output_avg_CS259
+2026-04-07 15:48:09,370 INFO impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2026-04-07 15:48:09,410 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2026-04-07 15:48:09,410 INFO impl.MetricsSystemImpl: JobTracker metrics system started
+2026-04-07 15:48:09,465 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2026-04-07 15:48:09,533 INFO input.FileInputFormat: Total input files to process : 2
+2026-04-07 15:48:09,541 INFO mapreduce.JobSubmitter: number of splits:2
+2026-04-07 15:48:09,591 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local1972543727_0001
+2026-04-07 15:48:09,592 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-04-07 15:48:09,641 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+2026-04-07 15:48:09,641 INFO mapreduce.Job: Running job: job_local1972543727_0001
+2026-04-07 15:48:09,642 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+2026-04-07 15:48:09,644 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-04-07 15:48:09,644 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-04-07 15:48:09,644 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-04-07 15:48:09,645 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2026-04-07 15:48:09,678 INFO mapred.LocalJobRunner: Waiting for map tasks
+2026-04-07 15:48:09,678 INFO mapred.LocalJobRunner: Starting task: attempt_local1972543727_0001_m_000000_0
+2026-04-07 15:48:09,686 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-04-07 15:48:09,686 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-04-07 15:48:09,686 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-04-07 15:48:09,693 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2026-04-07 15:48:09,695 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/input_temp_CS259/1902:0+888978
+2026-04-07 15:48:09,728 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2026-04-07 15:48:09,728 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2026-04-07 15:48:09,728 INFO mapred.MapTask: soft limit at 83886080
+2026-04-07 15:48:09,728 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2026-04-07 15:48:09,728 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+2026-04-07 15:48:09,730 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2026-04-07 15:48:09,847 INFO mapred.LocalJobRunner: 
+2026-04-07 15:48:09,848 INFO mapred.MapTask: Starting flush of map output
+2026-04-07 15:48:09,848 INFO mapred.MapTask: Spilling map output
+2026-04-07 15:48:09,848 INFO mapred.MapTask: bufstart = 0; bufend = 59085; bufvoid = 104857600
+2026-04-07 15:48:09,848 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26188140(104752560); length = 26257/6553600
+2026-04-07 15:48:09,855 INFO mapred.MapTask: Finished spill 0
+2026-04-07 15:48:09,859 INFO mapred.Task: Task:attempt_local1972543727_0001_m_000000_0 is done. And is in the process of committing
+2026-04-07 15:48:09,861 INFO mapred.LocalJobRunner: map
+2026-04-07 15:48:09,861 INFO mapred.Task: Task 'attempt_local1972543727_0001_m_000000_0' done.
+2026-04-07 15:48:09,864 INFO mapred.Task: Final Counters for attempt_local1972543727_0001_m_000000_0: Counters: 23
+	File System Counters
+		FILE: Number of bytes read=4456
+		FILE: Number of bytes written=717099
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=888978
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=5
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=1
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=6565
+		Map output records=6565
+		Map output bytes=59085
+		Map output materialized bytes=72221
+		Input split bytes=108
+		Combine input records=0
+		Spilled Records=6565
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=48
+		Total committed heap usage (bytes)=992477184
+	File Input Format Counters 
+		Bytes Read=888978
+2026-04-07 15:48:09,864 INFO mapred.LocalJobRunner: Finishing task: attempt_local1972543727_0001_m_000000_0
+2026-04-07 15:48:09,864 INFO mapred.LocalJobRunner: Starting task: attempt_local1972543727_0001_m_000001_0
+2026-04-07 15:48:09,864 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-04-07 15:48:09,864 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-04-07 15:48:09,864 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-04-07 15:48:09,865 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2026-04-07 15:48:09,865 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/input_temp_CS259/1901:0+888190
+2026-04-07 15:48:09,872 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2026-04-07 15:48:09,872 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2026-04-07 15:48:09,872 INFO mapred.MapTask: soft limit at 83886080
+2026-04-07 15:48:09,872 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2026-04-07 15:48:09,872 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+2026-04-07 15:48:09,872 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2026-04-07 15:48:09,887 INFO mapred.LocalJobRunner: 
+2026-04-07 15:48:09,887 INFO mapred.MapTask: Starting flush of map output
+2026-04-07 15:48:09,887 INFO mapred.MapTask: Spilling map output
+2026-04-07 15:48:09,887 INFO mapred.MapTask: bufstart = 0; bufend = 59076; bufvoid = 104857600
+2026-04-07 15:48:09,887 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26188144(104752576); length = 26253/6553600
+2026-04-07 15:48:09,889 INFO mapred.MapTask: Finished spill 0
+2026-04-07 15:48:09,891 INFO mapred.Task: Task:attempt_local1972543727_0001_m_000001_0 is done. And is in the process of committing
+2026-04-07 15:48:09,892 INFO mapred.LocalJobRunner: map
+2026-04-07 15:48:09,892 INFO mapred.Task: Task 'attempt_local1972543727_0001_m_000001_0' done.
+2026-04-07 15:48:09,892 INFO mapred.Task: Final Counters for attempt_local1972543727_0001_m_000001_0: Counters: 23
+	File System Counters
+		FILE: Number of bytes read=4691
+		FILE: Number of bytes written=789341
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=1777168
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=7
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=1
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=6565
+		Map output records=6564
+		Map output bytes=59076
+		Map output materialized bytes=72210
+		Input split bytes=108
+		Combine input records=0
+		Spilled Records=6564
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=0
+		Total committed heap usage (bytes)=992477184
+	File Input Format Counters 
+		Bytes Read=888190
+2026-04-07 15:48:09,892 INFO mapred.LocalJobRunner: Finishing task: attempt_local1972543727_0001_m_000001_0
+2026-04-07 15:48:09,892 INFO mapred.LocalJobRunner: map task executor complete.
+2026-04-07 15:48:09,894 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+2026-04-07 15:48:09,894 INFO mapred.LocalJobRunner: Starting task: attempt_local1972543727_0001_r_000000_0
+2026-04-07 15:48:09,897 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2026-04-07 15:48:09,897 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2026-04-07 15:48:09,897 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2026-04-07 15:48:09,897 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2026-04-07 15:48:09,898 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@71479053
+2026-04-07 15:48:09,899 WARN impl.MetricsSystemImpl: JobTracker metrics system already initialized!
+2026-04-07 15:48:09,906 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=5180594688, maxSingleShuffleLimit=1295148672, mergeThreshold=3419192576, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+2026-04-07 15:48:09,907 INFO reduce.EventFetcher: attempt_local1972543727_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+2026-04-07 15:48:09,918 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local1972543727_0001_m_000001_0 decomp: 72206 len: 72210 to MEMORY
+2026-04-07 15:48:09,919 INFO reduce.InMemoryMapOutput: Read 72206 bytes from map-output for attempt_local1972543727_0001_m_000001_0
+2026-04-07 15:48:09,920 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 72206, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->72206
+2026-04-07 15:48:09,920 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local1972543727_0001_m_000000_0 decomp: 72217 len: 72221 to MEMORY
+2026-04-07 15:48:09,921 INFO reduce.InMemoryMapOutput: Read 72217 bytes from map-output for attempt_local1972543727_0001_m_000000_0
+2026-04-07 15:48:09,921 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 72217, inMemoryMapOutputs.size() -> 2, commitMemory -> 72206, usedMemory ->144423
+2026-04-07 15:48:09,921 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+2026-04-07 15:48:09,921 INFO mapred.LocalJobRunner: 2 / 2 copied.
+2026-04-07 15:48:09,921 INFO reduce.MergeManagerImpl: finalMerge called with 2 in-memory map-outputs and 0 on-disk map-outputs
+2026-04-07 15:48:09,923 INFO mapred.Merger: Merging 2 sorted segments
+2026-04-07 15:48:09,923 INFO mapred.Merger: Down to the last merge-pass, with 2 segments left of total size: 144409 bytes
+2026-04-07 15:48:09,929 INFO reduce.MergeManagerImpl: Merged 2 segments, 144423 bytes to disk to satisfy reduce memory limit
+2026-04-07 15:48:09,929 INFO reduce.MergeManagerImpl: Merging 1 files, 144425 bytes from disk
+2026-04-07 15:48:09,930 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+2026-04-07 15:48:09,930 INFO mapred.Merger: Merging 1 sorted segments
+2026-04-07 15:48:09,930 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 144414 bytes
+2026-04-07 15:48:09,930 INFO mapred.LocalJobRunner: 2 / 2 copied.
+2026-04-07 15:48:09,945 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2026-04-07 15:48:09,998 INFO mapred.Task: Task:attempt_local1972543727_0001_r_000000_0 is done. And is in the process of committing
+2026-04-07 15:48:10,000 INFO mapred.LocalJobRunner: 2 / 2 copied.
+2026-04-07 15:48:10,000 INFO mapred.Task: Task attempt_local1972543727_0001_r_000000_0 is allowed to commit now
+2026-04-07 15:48:10,006 INFO output.FileOutputCommitter: Saved output of task 'attempt_local1972543727_0001_r_000000_0' to hdfs://localhost:9000/output_avg_CS259
+2026-04-07 15:48:10,007 INFO mapred.LocalJobRunner: reduce > reduce
+2026-04-07 15:48:10,007 INFO mapred.Task: Task 'attempt_local1972543727_0001_r_000000_0' done.
+2026-04-07 15:48:10,007 INFO mapred.Task: Final Counters for attempt_local1972543727_0001_r_000000_0: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=293611
+		FILE: Number of bytes written=933766
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=1777168
+		HDFS: Number of bytes written=16
+		HDFS: Number of read operations=12
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=3
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=2
+		Reduce shuffle bytes=144431
+		Reduce input records=13129
+		Reduce output records=2
+		Spilled Records=13129
+		Shuffled Maps =2
+		Failed Shuffles=0
+		Merged Map outputs=2
+		GC time elapsed (ms)=0
+		Total committed heap usage (bytes)=992477184
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=16
+2026-04-07 15:48:10,007 INFO mapred.LocalJobRunner: Finishing task: attempt_local1972543727_0001_r_000000_0
+2026-04-07 15:48:10,007 INFO mapred.LocalJobRunner: reduce task executor complete.
+2026-04-07 15:48:10,643 INFO mapreduce.Job: Job job_local1972543727_0001 running in uber mode : false
+2026-04-07 15:48:10,644 INFO mapreduce.Job:  map 100% reduce 100%
+2026-04-07 15:48:10,644 INFO mapreduce.Job: Job job_local1972543727_0001 completed successfully
+2026-04-07 15:48:10,648 INFO mapreduce.Job: Counters: 36
+	File System Counters
+		FILE: Number of bytes read=302758
+		FILE: Number of bytes written=2440206
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=4443314
+		HDFS: Number of bytes written=16
+		HDFS: Number of read operations=24
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=5
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=13130
+		Map output records=13129
+		Map output bytes=118161
+		Map output materialized bytes=144431
+		Input split bytes=216
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=2
+		Reduce shuffle bytes=144431
+		Reduce input records=13129
+		Reduce output records=2
+		Spilled Records=26258
+		Shuffled Maps =2
+		Failed Shuffles=0
+		Merged Map outputs=2
+		GC time elapsed (ms)=48
+		Total committed heap usage (bytes)=2977431552
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=1777168
+	File Output Format Counters 
+		Bytes Written=16
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -ls /output_avg_CS259
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2026-04-07 15:48 /output_avg_CS259/_SUCCESS
+-rw-r--r--   1 hadoop supergroup         16 2026-04-07 15:48 /output_avg_CS259/part-r-00000
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ hdfs dfs -cat /output_avg_CS259/part-r-00000
+1901	46
+1902	21
+hadoop@bmscecse-HP-Elite-Tower-800-G9-Desktop-PC:~/Desktop/CS259_Hadoop$ 
