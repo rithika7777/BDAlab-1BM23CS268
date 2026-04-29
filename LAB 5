@@ -1,0 +1,333 @@
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~$ cd ~/hadoop/sbin
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as hadoop in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+localhost: namenode is running as process 10405.  Stop it first and ensure /tmp/hadoop-hadoop-namenode.pid file is empty before retry.
+Starting datanodes
+localhost: datanode is running as process 10583.  Stop it first and ensure /tmp/hadoop-hadoop-datanode.pid file is empty before retry.
+Starting secondary namenodes [bmscecse-HP-Elite-Tower-600-G9-Desktop-PC]
+bmscecse-HP-Elite-Tower-600-G9-Desktop-PC: secondarynamenode is running as process 10866.  Stop it first and ensure /tmp/hadoop-hadoop-secondarynamenode.pid file is empty before retry.
+Starting resourcemanager
+resourcemanager is running as process 11165.  Stop it first and ensure /tmp/hadoop-hadoop-resourcemanager.pid file is empty before retry.
+Starting nodemanagers
+localhost: nodemanager is running as process 11326.  Stop it first and ensure /tmp/hadoop-hadoop-nodemanager.pid file is empty before retry.
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /
+Found 17 items
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:47 /abc
+drwxr-xr-x   - hadoop supergroup          0 2026-03-31 15:22 /abc_CS259
+drwxr-xr-x   - hadoop supergroup          0 2023-05-15 14:45 /abd
+drwxr-xr-x   - hadoop supergroup          0 2025-04-15 14:47 /bda_hadoop
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 14:59 /bdalab
+drwxr-xr-x   - hadoop supergroup          0 2026-03-31 15:40 /hadoop_lab_CS259
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:56 /in
+drwxr-xr-x   - hadoop supergroup          0 2023-05-19 11:47 /input
+drwxr-xr-x   - hadoop supergroup          0 2025-05-06 15:32 /lab0
+drwxr-xr-x   - hadoop supergroup          0 2023-06-19 15:54 /out
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:20 /output
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:44 /output1
+drwxr-xr-x   - hadoop supergroup          0 2023-05-22 15:11 /sample1
+drwxr-xr-x   - hadoop supergroup          0 2023-04-27 12:22 /sample2
+drwxr-xr-x   - hadoop supergroup          0 2025-04-16 11:59 /tejas.txt
+drwx------   - hadoop supergroup          0 2023-05-04 13:01 /tmp
+drwxr-xr-x   - hadoop supergroup          0 2025-05-27 15:03 /user
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -mkdir /rgs_259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -copyFromLocal ~/Desktop/Hadoop_CS259/sample.txt /rgs_259/test.txt
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259 WCDriver input output
+JAR does not exist or is not a normal file: /home/hadoop/Desktop/Hadoop_CS259/Wordcount_259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259.jar WCDriver input output
+2026-03-31 16:34:13,894 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:34:13,985 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/output already exists
+	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)
+	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:279)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:576)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:571)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:571)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:562)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:873)
+	at WCDriver.run(WCDriver.java:36)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:95)
+	at WCDriver.main(WCDriver.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259.jar WCDriver input output_CS259
+2026-03-31 16:35:06,681 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:35:06,757 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:35:06,850 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2026-03-31 16:35:06,879 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1774949940868_0001
+2026-03-31 16:35:07,060 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-03-31 16:35:07,153 INFO mapreduce.JobSubmitter: number of splits:2
+2026-03-31 16:35:07,269 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1774949940868_0001
+2026-03-31 16:35:07,269 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-03-31 16:35:07,354 INFO conf.Configuration: resource-types.xml not found
+2026-03-31 16:35:07,354 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-03-31 16:35:07,472 INFO impl.YarnClientImpl: Submitted application application_1774949940868_0001
+2026-03-31 16:35:07,495 INFO mapreduce.Job: The url to track the job: http://bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:8088/proxy/application_1774949940868_0001/
+2026-03-31 16:35:07,497 INFO mapreduce.Job: Running job: job_1774949940868_0001
+2026-03-31 16:35:12,567 INFO mapreduce.Job: Job job_1774949940868_0001 running in uber mode : false
+2026-03-31 16:35:12,569 INFO mapreduce.Job:  map 0% reduce 0%
+2026-03-31 16:35:15,630 INFO mapreduce.Job:  map 100% reduce 0%
+2026-03-31 16:35:19,662 INFO mapreduce.Job:  map 100% reduce 100%
+2026-03-31 16:35:19,678 INFO mapreduce.Job: Job job_1774949940868_0001 completed successfully
+2026-03-31 16:35:19,744 INFO mapreduce.Job: Counters: 54
+	File System Counters
+		FILE: Number of bytes read=236
+		FILE: Number of bytes written=828402
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=373
+		HDFS: Number of bytes written=150
+		HDFS: Number of read operations=11
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=2
+		Launched reduce tasks=1
+		Data-local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=2331
+		Total time spent by all reduces in occupied slots (ms)=1247
+		Total time spent by all map tasks (ms)=2331
+		Total time spent by all reduce tasks (ms)=1247
+		Total vcore-milliseconds taken by all map tasks=2331
+		Total vcore-milliseconds taken by all reduce tasks=1247
+		Total megabyte-milliseconds taken by all map tasks=2386944
+		Total megabyte-milliseconds taken by all reduce tasks=1276928
+	Map-Reduce Framework
+		Map input records=10
+		Map output records=20
+		Map output bytes=190
+		Map output materialized bytes=242
+		Input split bytes=208
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=20
+		Reduce shuffle bytes=242
+		Reduce input records=20
+		Reduce output records=20
+		Spilled Records=40
+		Shuffled Maps =2
+		Failed Shuffles=0
+		Merged Map outputs=2
+		GC time elapsed (ms)=18
+		CPU time spent (ms)=850
+		Physical memory (bytes) snapshot=926695424
+		Virtual memory (bytes) snapshot=8344166400
+		Total committed heap usage (bytes)=1572864000
+		Peak Map Physical memory (bytes)=340971520
+		Peak Map Virtual memory (bytes)=2777677824
+		Peak Reduce Physical memory (bytes)=247959552
+		Peak Reduce Virtual memory (bytes)=2789711872
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=165
+	File Output Format Counters 
+		Bytes Written=150
+0
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /output1/
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2023-05-22 15:44 /output1/_SUCCESS
+-rw-r--r--   1 hadoop supergroup         40 2023-05-22 15:44 /output1/part-00000
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /output1/part-00000
+-rw-r--r--   1 hadoop supergroup         40 2023-05-22 15:44 /output1/part-00000
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -cat /output1/part-00000
+1BM20CS113	1
+My	1
+Preetam	1
+is	1
+name	1
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -mkdir /input_CS259_Wordcount
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259.jar WCDriver rgs_259 output_CS259
+2026-03-31 16:39:11,906 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:39:11,982 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:9000/user/hadoop/output_CS259 already exists
+	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)
+	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:279)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:576)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:571)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:571)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:562)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:873)
+	at WCDriver.run(WCDriver.java:36)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:95)
+	at WCDriver.main(WCDriver.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hdfs dfs -rm -r /user/hadoop/output_CS259
+Deleted /user/hadoop/output_CS259
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259.jar WCDriver rgs_259 output_CS259
+2026-03-31 16:39:55,578 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:39:55,655 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:39:55,737 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2026-03-31 16:39:55,759 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1774949940868_0002
+2026-03-31 16:39:55,914 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/hadoop/.staging/job_1774949940868_0002
+Exception in thread "main" org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: hdfs://localhost:9000/user/hadoop/rgs_259
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:304)
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:244)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:332)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeOldSplits(JobSubmitter.java:338)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeSplits(JobSubmitter.java:329)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:200)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:576)
+	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:571)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:571)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:562)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:873)
+	at WCDriver.run(WCDriver.java:36)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:81)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:95)
+	at WCDriver.main(WCDriver.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:323)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+Caused by: java.io.IOException: Input path does not exist: hdfs://localhost:9000/user/hadoop/rgs_259
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:278)
+	... 29 more
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop jar ~/Desktop/Hadoop_CS259/Wordcount_259.jar WCDriver /rgs_259 /rgs_259/output
+2026-03-31 16:40:58,415 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:40:58,490 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2026-03-31 16:40:58,573 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+2026-03-31 16:40:58,597 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1774949940868_0003
+2026-03-31 16:40:58,757 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-03-31 16:40:58,864 INFO mapreduce.JobSubmitter: number of splits:2
+2026-03-31 16:40:58,972 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1774949940868_0003
+2026-03-31 16:40:58,972 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-03-31 16:40:59,042 INFO conf.Configuration: resource-types.xml not found
+2026-03-31 16:40:59,042 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-03-31 16:40:59,067 INFO impl.YarnClientImpl: Submitted application application_1774949940868_0003
+2026-03-31 16:40:59,084 INFO mapreduce.Job: The url to track the job: http://bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:8088/proxy/application_1774949940868_0003/
+2026-03-31 16:40:59,085 INFO mapreduce.Job: Running job: job_1774949940868_0003
+2026-03-31 16:41:03,146 INFO mapreduce.Job: Job job_1774949940868_0003 running in uber mode : false
+2026-03-31 16:41:03,148 INFO mapreduce.Job:  map 0% reduce 0%
+2026-03-31 16:41:06,180 INFO mapreduce.Job:  map 100% reduce 0%
+2026-03-31 16:41:10,209 INFO mapreduce.Job:  map 100% reduce 100%
+2026-03-31 16:41:11,232 INFO mapreduce.Job: Job job_1774949940868_0003 completed successfully
+2026-03-31 16:41:11,292 INFO mapreduce.Job: Counters: 54
+	File System Counters
+		FILE: Number of bytes read=215
+		FILE: Number of bytes written=828300
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=314
+		HDFS: Number of bytes written=69
+		HDFS: Number of read operations=11
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=2
+		Launched reduce tasks=1
+		Data-local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=2307
+		Total time spent by all reduces in occupied slots (ms)=1109
+		Total time spent by all map tasks (ms)=2307
+		Total time spent by all reduce tasks (ms)=1109
+		Total vcore-milliseconds taken by all map tasks=2307
+		Total vcore-milliseconds taken by all reduce tasks=1109
+		Total megabyte-milliseconds taken by all map tasks=2362368
+		Total megabyte-milliseconds taken by all reduce tasks=1135616
+	Map-Reduce Framework
+		Map input records=5
+		Map output records=20
+		Map output bytes=169
+		Map output materialized bytes=221
+		Input split bytes=180
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=10
+		Reduce shuffle bytes=221
+		Reduce input records=20
+		Reduce output records=10
+		Spilled Records=40
+		Shuffled Maps =2
+		Failed Shuffles=0
+		Merged Map outputs=2
+		GC time elapsed (ms)=23
+		CPU time spent (ms)=850
+		Physical memory (bytes) snapshot=920440832
+		Virtual memory (bytes) snapshot=8342159360
+		Total committed heap usage (bytes)=1572864000
+		Peak Map Physical memory (bytes)=335953920
+		Peak Map Virtual memory (bytes)=2777366528
+		Peak Reduce Physical memory (bytes)=251174912
+		Peak Reduce Virtual memory (bytes)=2788741120
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=134
+	File Output Format Counters 
+		Bytes Written=69
+0
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -ls /rgs_259/output
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2026-03-31 16:41 /rgs_259/output/_SUCCESS
+-rw-r--r--   1 hadoop supergroup         69 2026-03-31 16:41 /rgs_259/output/part-00000
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ hadoop fs -cat /rgs_259/output/part-00000
+are	1
+brother	1
+family	1
+hi	1
+how	5
+is	4
+job	1
+sister	1
+you	1
+your	4
+hadoop@bmscecse-HP-Elite-Tower-600-G9-Desktop-PC:~/hadoop/sbin$ 
